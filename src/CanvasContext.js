@@ -6,8 +6,7 @@ export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false);
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
-  const [bgImage, setBgImage] = useState(null);
-  const [reload, setReload] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
@@ -30,7 +29,7 @@ export const CanvasProvider = ({ children }) => {
 
     // Make sure the image is loaded first otherwise nothing will draw.
     background.onload = function () {
-      setBgImage(background);
+      setImageLoaded(true);
       context.drawImage(background, 0, 0);
     };
     background.onerror = function () {
@@ -62,15 +61,17 @@ export const CanvasProvider = ({ children }) => {
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    console.log({ context });
-    // context.clearRect(0, 0, canvas.width, canvas.height);
 
-    setReload(!reload);
-    // addBackgroundImage(bgImage);
+    context.clearRect(0, 0, canvas.width, canvas.height);
   };
 
-  const saveCanvasAsImage = () => {
+  const saveCanvasAsImage = (background) => {
     const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+
+    setImageLoaded(false);
+    background && addBackgroundImage(background);
+
     const image = canvas
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream");
@@ -90,8 +91,8 @@ export const CanvasProvider = ({ children }) => {
         draw,
         saveCanvasAsImage,
         addBackgroundImage,
-        reload,
-        setReload,
+        imageLoaded,
+        setImageLoaded,
       }}
     >
       {children}

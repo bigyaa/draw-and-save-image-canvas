@@ -1,7 +1,7 @@
 import React from "react";
 import { useCanvas } from "./CanvasContext";
 
-export const SaveImageButton = () => {
+export const SaveImageButton = (background) => {
   const { saveCanvasAsImage } = useCanvas();
 
   return (
@@ -9,7 +9,7 @@ export const SaveImageButton = () => {
       style={{
         zIndex: 22,
       }}
-      onClick={saveCanvasAsImage}
+      onClick={() => saveCanvasAsImage(background)}
     >
       Save Image
     </button>

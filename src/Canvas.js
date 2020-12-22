@@ -11,35 +11,34 @@ export function Canvas() {
     startDrawing,
     finishDrawing,
     draw,
-    addBackgroundImage,
-    reload,
-    setReload,
+    imageLoaded,
+    setImageLoaded,
   } = useCanvas();
 
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   const background = new Image();
   background.src =
-  "https://upload.wikimedia.org/wikipedia/commons/6/62/Starsinthesky.jpg" +
-  "?" +
-  new Date().getTime();
+    "https://upload.wikimedia.org/wikipedia/commons/6/62/Starsinthesky.jpg" +
+    "?" +
+    new Date().getTime();
 
   useEffect(() => {
-    console.log({ reload });
     setImageLoaded(false);
+
     background.onload = () => {
       setImageLoaded(true);
       background.setAttribute("crossOrigin", "anonymous");
       prepareCanvas();
-      addBackgroundImage(background);
+      // addBackgroundImage(background);
     };
     return () => setImageLoaded(false);
-  }, [reload]);
+  }, []);
 
   return (
     <div id="canvas-container">
       {imageLoaded ? (
         <>
+          <img id="bg-img" src={background.src} alt="" />
           <canvas
             id="canvas"
             onMouseDown={startDrawing}
@@ -48,7 +47,7 @@ export function Canvas() {
             ref={canvasRef}
           />
           <ClearCanvasButton />
-          <SaveImageButton />
+          <SaveImageButton image={background} />
         </>
       ) : (
         "Loading Image ..."
