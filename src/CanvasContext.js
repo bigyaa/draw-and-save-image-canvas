@@ -7,7 +7,7 @@ export const CanvasProvider = ({ children }) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [bgImage, setBgImage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [reload, setReload] = useState(false);
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
@@ -62,13 +62,11 @@ export const CanvasProvider = ({ children }) => {
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
+    console.log({ context });
+    // context.clearRect(0, 0, canvas.width, canvas.height);
 
-    setLoading(true);
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    bgImage.onload = () => {
-      context.drawImage(bgImage, 0, 0);
-      setLoading(false);
-    };
+    setReload(!reload);
+    // addBackgroundImage(bgImage);
   };
 
   const saveCanvasAsImage = () => {
@@ -92,7 +90,8 @@ export const CanvasProvider = ({ children }) => {
         draw,
         saveCanvasAsImage,
         addBackgroundImage,
-        loading,
+        reload,
+        setReload,
       }}
     >
       {children}
