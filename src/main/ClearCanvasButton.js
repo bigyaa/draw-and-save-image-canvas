@@ -1,7 +1,7 @@
 import React from "react";
 import { useCanvas } from "./CanvasContext";
 
-export const ClearCanvasButton = () => {
+const ClearCanvasButton = () => {
   const { clearCanvas } = useCanvas();
 
   return (
@@ -9,6 +9,7 @@ export const ClearCanvasButton = () => {
       style={{
         zIndex: 22,
         marginLeft: "70%",
+        position: "relative",
       }}
       onClick={clearCanvas}
     >
@@ -16,3 +17,5 @@ export const ClearCanvasButton = () => {
     </button>
   );
 };
+
+export default ClearCanvasButton;
