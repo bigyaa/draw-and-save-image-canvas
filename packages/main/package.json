@@ -1,0 +1,24 @@
+{
+  "name": "draw-on-image-and-save",
+  "version": "2.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/bigyaa/draw-and-save-image-canvas.git",
+  "author": "bigya <bigya@fusemachines.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel public/index.html --open",
+    "build": "parcel build public/index.html"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}

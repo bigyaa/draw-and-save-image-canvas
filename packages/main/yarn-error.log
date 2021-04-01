@@ -1,0 +1,53 @@
+Arguments: 
+  /home/fm-pc-lt-63/.nvm/versions/node/v14.4.0/bin/node /usr/share/yarn/bin/yarn.js add @babel/core -D
+
+PATH: 
+  /tmp/yarn--1617288404054-0.7184704475710433:/home/fm-pc-lt-63/bigya/draw-on-image-and-save/packages/main/node_modules/.bin:/home/fm-pc-lt-63/.config/yarn/link/node_modules/.bin:/home/fm-pc-lt-63/bigya/draw-on-image-and-save/node_modules/.bin:/home/fm-pc-lt-63/.yarn/bin:/home/fm-pc-lt-63/.nvm/versions/node/v14.4.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/fm-pc-lt-63/.nvm/versions/node/v14.4.0/lib/node_modules/npm/bin/node-gyp-bin:/home/fm-pc-lt-63/.nvm/versions/node/v14.4.0/bin/node_modules/npm/bin/node-gyp-bin:/home/fm-pc-lt-63/Android/Sdk/platform-tools:/home/fm-pc-lt-63/bin:/home/fm-pc-lt-63/.nvm/versions/node/v14.4.0/bin:/home/fm-pc-lt-63/Android/Sdk/platform-tools:/home/fm-pc-lt-63/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  14.4.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/fm-pc-lt-63/bigya/draw-on-image-and-save/packages/main/package.json: Unexpected token m in JSON at position 549
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:310:30)
+      at /usr/share/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "draw-on-image-and-save",
+    "version": "2.0.0",
+    "repository": "https://github.com/bigyaa/draw-and-save-image-canvas.git",
+    "author": "bigya <bigya@fusemachines.com>",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+      "start": "parcel index.js",
+      "build": "parcel build index.js"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.10",
+      "@babel/preset-env": "^7.12.11",
+      "@babel/preset-react": "^7.12.10",
+      "parcel-bundler": "^1.12.4"
+    },
+    "dependencies": {
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1  "main": "./index.js",
+      "
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

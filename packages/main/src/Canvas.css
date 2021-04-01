@@ -1,0 +1,30 @@
+div {
+  text-align: center;
+  background: #f2f6f8;
+}
+#bg-img {
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
+
+#canvas-container {
+  display: inline-block;
+  /* width: 1vw;
+  height: 1vh; */
+  margin: 0 auto;
+  /* background: black; */
+  position: relative;
+  /* border: 5px solid black; */
+  border-radius: 10px;
+  box-shadow: 0 5px 50px #333;
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
+
+#canvas {
+  position: relative;
+  z-index: 20;
+}
