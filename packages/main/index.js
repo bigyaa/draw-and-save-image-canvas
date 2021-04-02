@@ -6,22 +6,18 @@ import ClearCanvasButton from "./src/ClearCanvasButton";
 import SaveImageButton from "./src/SaveImageButton";
 import Canvas from "./src/Canvas";
 
-ReactDOM.render(
+const MainApp = ({
+  imageSrc = "https://upload.wikimedia.org/wikipedia/commons/6/62/Starsinthesky.jpg",
+}) => (
   <div>
     <Suspense fallback={<Loading />}>
       <CanvasProvider>
-        <Canvas imageSrc="https://upload.wikimedia.org/wikipedia/commons/6/62/Starsinthesky.jpg" />
+        <Canvas imageSrc={imageSrc} />
       </CanvasProvider>
     </Suspense>
-  </div>,
-  document.getElementById("root")
+  </div>
 );
 
-// export default {
-//   useCanvas,
-//   CanvasProvider,
-//   Loading,
-//   ClearCanvasButton,
-//   SaveImageButton,
-//   Canvas,
-// };
+ReactDOM.render(<MainApp />, document.getElementById("root"));
+
+export default MainApp;
